@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>STU</display-name>
+
+
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/serlvet/LoginServlet</url-pattern>
+    </servlet-mapping>
+    
+    <filter>
+    	<filter-name>LoginFilter</filter-name>
+    	<filter-class>com.filter.LoginFilter</filter-class>
+    	<init-param>
+    		<param-name>noLoginPaths</param-name>
+    		<param-value>login.jsp;logout2.jsp;register.jsp;AddUser.jsp;LoginServlet;</param-value>
+    	</init-param>
+  	</filter>
+
+  	<filter-mapping>
+	    <filter-name>LoginFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+    	<filter-name>AdminFilter</filter-name>
+    	<filter-class>com.filter.AdminFilter</filter-class>
+  	</filter> 
+    <filter-mapping>
+	    <filter-name>AdminFilter</filter-name>
+	    <url-pattern>/ReaderPan.jsp</url-pattern>
+    </filter-mapping> 
+  	<filter-mapping>
+	    <filter-name>AdminFilter</filter-name>
+	    <url-pattern>/BorrowPan.jsp</url-pattern>
+    </filter-mapping> 
+    <filter-mapping>
+	    <filter-name>AdminFilter</filter-name>
+	    <url-pattern>/deleteUse.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+	    <filter-name>AdminFilter</filter-name>
+	    <url-pattern>/contain.jsp</url-pattern>
+    </filter-mapping>
+  	
+  
+    
+    
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+</web-app>
